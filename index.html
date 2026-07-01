@@ -23,7 +23,16 @@
       <h1>Угадай слово <span class="crown">👑</span></h1>
     </header>
 
-    <section id="game-screen">
+    <section id="start-screen">
+      <div class="finished-box">
+        <p class="finished-emoji">👑✨👑</p>
+        <h2>Угадывайте слова на русском и английском!</h2>
+        <p class="round-over-sub">45 секунд на раунд — объясняйте слово, пока не закончится время</p>
+        <button id="start-btn" class="btn btn-primary">Начать игру</button>
+      </div>
+    </section>
+
+    <section id="game-screen" class="hidden">
       <p id="progress" class="progress"></p>
       <p id="timer" class="timer"></p>
 

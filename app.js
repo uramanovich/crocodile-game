@@ -4,9 +4,11 @@ const cardWordRuEl = document.getElementById("card-word-ru");
 const cardWordEnEl = document.getElementById("card-word-en");
 const nextBtn = document.getElementById("next-btn");
 const restartBtn = document.getElementById("restart-btn");
+const startBtn = document.getElementById("start-btn");
 const startRoundBtn = document.getElementById("start-round-btn");
 const progressEl = document.getElementById("progress");
 const timerEl = document.getElementById("timer");
+const startScreen = document.getElementById("start-screen");
 const gameScreen = document.getElementById("game-screen");
 const roundOverScreen = document.getElementById("round-over-screen");
 const finishedScreen = document.getElementById("finished-screen");
@@ -66,6 +68,7 @@ function endRound() {
 function startDeck() {
   deck = shuffle(WORDS);
   currentIndex = 0;
+  startScreen.classList.add("hidden");
   finishedScreen.classList.add("hidden");
   renderCard();
   startRound();
@@ -89,5 +92,4 @@ nextBtn.addEventListener("click", () => {
 
 startRoundBtn.addEventListener("click", startRound);
 restartBtn.addEventListener("click", startDeck);
-
-startDeck();
+startBtn.addEventListener("click", startDeck);
