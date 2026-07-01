@@ -1,6 +1,5 @@
-const cardEl = document.getElementById("card");
-const cardFrontEl = document.getElementById("card-front-word");
-const cardBackEl = document.getElementById("card-back-word");
+const cardWordRuEl = document.getElementById("card-word-ru");
+const cardWordEnEl = document.getElementById("card-word-en");
 const nextBtn = document.getElementById("next-btn");
 const restartBtn = document.getElementById("restart-btn");
 const progressEl = document.getElementById("progress");
@@ -21,9 +20,8 @@ function shuffle(array) {
 
 function renderCard() {
   const word = deck[currentIndex];
-  cardFrontEl.textContent = word.ru;
-  cardBackEl.textContent = word.en;
-  cardEl.classList.remove("flipped");
+  cardWordRuEl.textContent = word.ru;
+  cardWordEnEl.textContent = word.en;
   progressEl.textContent = `Слово ${currentIndex + 1} / ${deck.length}`;
 }
 
@@ -39,10 +37,6 @@ function showFinishedScreen() {
   gameScreen.classList.add("hidden");
   finishedScreen.classList.remove("hidden");
 }
-
-cardEl.addEventListener("click", () => {
-  cardEl.classList.toggle("flipped");
-});
 
 nextBtn.addEventListener("click", () => {
   currentIndex += 1;
