@@ -25,6 +25,7 @@
 
     <section id="game-screen">
       <p id="progress" class="progress"></p>
+      <p id="timer" class="timer"></p>
 
       <div id="card" class="card">
         <span class="lang-label lang-label-ru">RU</span>
@@ -35,6 +36,15 @@
       </div>
 
       <button id="next-btn" class="btn btn-primary">Следующее слово →</button>
+    </section>
+
+    <section id="round-over-screen" class="hidden">
+      <div class="finished-box">
+        <p class="finished-emoji">⏰</p>
+        <h2>Время вышло!</h2>
+        <p class="round-over-sub">Передайте устройство следующему игроку</p>
+        <button id="start-round-btn" class="btn btn-primary">Начать раунд</button>
+      </div>
     </section>
 
     <section id="finished-screen" class="hidden">
