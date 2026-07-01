@@ -1,5 +1,3 @@
-import WORDS from "./words.js";
-
 const cardEl = document.getElementById("card");
 const cardFrontEl = document.getElementById("card-front-word");
 const cardBackEl = document.getElementById("card-back-word");

@@ -104,5 +104,3 @@ const WORDS = [
   { ru: "Королевская спальня", en: "The Royal Bedroom" },
   { ru: "Падающая звезда", en: "Shooting star" },
 ];
-
-export default WORDS;
