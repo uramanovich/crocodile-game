@@ -222,6 +222,24 @@ main {
   transform: translateY(0);
 }
 
+.btn-secondary {
+  color: var(--pink-deep);
+  background: #fff;
+  border: 2px solid var(--pink);
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 4px 14px rgba(232, 85, 138, 0.25);
+}
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .hidden {
   display: none !important;
 }

@@ -2,6 +2,7 @@ const ROUND_SECONDS = 45;
 
 const cardWordRuEl = document.getElementById("card-word-ru");
 const cardWordEnEl = document.getElementById("card-word-en");
+const skipBtn = document.getElementById("skip-btn");
 const nextBtn = document.getElementById("next-btn");
 const restartBtn = document.getElementById("restart-btn");
 const startBtn = document.getElementById("start-btn");
@@ -13,8 +14,10 @@ const gameScreen = document.getElementById("game-screen");
 const roundOverScreen = document.getElementById("round-over-screen");
 const finishedScreen = document.getElementById("finished-screen");
 
-let deck = [];
-let currentIndex = 0;
+let queue = [];
+let currentWord = null;
+let shownCount = 0;
+let totalSlots = 0;
 let timeLeft = ROUND_SECONDS;
 let timerId = null;
 
@@ -27,11 +30,24 @@ function shuffle(array) {
   return result;
 }
 
+function buildQueue() {
+  return shuffle(WORDS).map((word) => ({ ...word, skippedOnce: false }));
+}
+
 function renderCard() {
-  const word = deck[currentIndex];
-  cardWordRuEl.textContent = word.ru;
-  cardWordEnEl.textContent = word.en;
-  progressEl.textContent = `Слово ${currentIndex + 1} / ${deck.length}`;
+  cardWordRuEl.textContent = currentWord.ru;
+  cardWordEnEl.textContent = currentWord.en;
+  progressEl.textContent = `Слово ${shownCount} / ${totalSlots}`;
+}
+
+function showNextCard() {
+  if (queue.length === 0) {
+    showFinishedScreen();
+    return;
+  }
+  currentWord = queue.shift();
+  shownCount += 1;
+  renderCard();
 }
 
 function updateTimerDisplay() {
@@ -66,11 +82,12 @@ function endRound() {
 }
 
 function startDeck() {
-  deck = shuffle(WORDS);
-  currentIndex = 0;
+  queue = buildQueue();
+  totalSlots = queue.length;
+  shownCount = 0;
   startScreen.classList.add("hidden");
   finishedScreen.classList.add("hidden");
-  renderCard();
+  showNextCard();
   startRound();
 }
 
@@ -81,14 +98,17 @@ function showFinishedScreen() {
   finishedScreen.classList.remove("hidden");
 }
 
-nextBtn.addEventListener("click", () => {
-  currentIndex += 1;
-  if (currentIndex >= deck.length) {
-    showFinishedScreen();
-  } else {
-    renderCard();
+skipBtn.addEventListener("click", () => {
+  if (!currentWord.skippedOnce) {
+    currentWord.skippedOnce = true;
+    totalSlots += 1;
+    const insertAt = Math.floor(Math.random() * (queue.length + 1));
+    queue.splice(insertAt, 0, currentWord);
   }
+  showNextCard();
 });
+
+nextBtn.addEventListener("click", showNextCard);
 
 startRoundBtn.addEventListener("click", startRound);
 restartBtn.addEventListener("click", startDeck);
