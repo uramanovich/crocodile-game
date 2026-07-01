@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Угадай слово 👑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="sparkles" aria-hidden="true">
+    <span class="sparkle s1">✨</span>
+    <span class="sparkle s2">✨</span>
+    <span class="sparkle s3">⭐</span>
+    <span class="sparkle s4">✨</span>
+    <span class="sparkle s5">⭐</span>
+  </div>
+
+  <main>
+    <header class="title">
+      <h1>Угадай слово <span class="crown">👑</span></h1>
+    </header>
+
+    <section id="game-screen">
+      <p id="progress" class="progress"></p>
+
+      <div id="card" class="card">
+        <div class="card-inner">
+          <div class="card-face card-front">
+            <span class="lang-label">RU</span>
+            <p id="card-front-word" class="card-word"></p>
+            <span class="hint">тапни, чтобы перевести →</span>
+          </div>
+          <div class="card-face card-back">
+            <span class="lang-label">EN</span>
+            <p id="card-back-word" class="card-word"></p>
+          </div>
+        </div>
+      </div>
+
+      <button id="next-btn" class="btn btn-primary">Следующее слово →</button>
+    </section>
+
+    <section id="finished-screen" class="hidden">
+      <div class="finished-box">
+        <p class="finished-emoji">🎉👑🎉</p>
+        <h2>Колода закончилась!</h2>
+        <button id="restart-btn" class="btn btn-primary">Начать заново</button>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
