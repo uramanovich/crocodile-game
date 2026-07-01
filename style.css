@@ -80,8 +80,30 @@ main {
   letter-spacing: 0.02em;
 }
 
+.title-en {
+  margin: 4px 0 0;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .crown {
   filter: drop-shadow(0 2px 2px rgba(212, 175, 55, 0.5));
+}
+
+.bilingual-en {
+  display: block;
+  margin-top: 6px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.round-over-sub .bilingual-en {
+  font-weight: 500;
+  opacity: 0.85;
 }
 
 #game-screen {
