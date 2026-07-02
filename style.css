@@ -320,6 +320,22 @@ main {
   gap: 20px;
 }
 
+.link-btn {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--pink-deep);
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.link-btn:hover {
+  color: var(--gold);
+}
+
 .last-updated {
   margin: 0;
   font-size: 0.8rem;
